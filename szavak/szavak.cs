@@ -51,6 +51,7 @@ namespace szavak
             int b = 0;
             string szo = "";
             char[] osszesbetu = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            char[] mshg = { 'a', 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
             Console.WriteLine("2.feladat.");
             for (int i = 0; i < mindenszo.Length; i++)
             {
@@ -63,10 +64,53 @@ namespace szavak
             Console.WriteLine(b);
             Console.WriteLine(szo);
 
+            Console.WriteLine("3. feladat:");
+            List<string> mshgSzavak = new List<string>();
+
+            for (int i = 0; i < mindenszo.Length; i++)
+            {
+                char[] betuk = mindenszo[i].ToCharArray();
+                int mghSzamlalo = 0;
+                int mshgSzamlalo = 0;
+
+                for (int j = 0; j < maganhangzok.Length; j++)
+                {
+
+                    for (int k = 0; k < betuk.Length; k++)
+                    {
+                        if (maganhangzok[j] == betuk[k])
+                        {
+                            mghSzamlalo++;
+                        }
+                    }
+                }
+
+                for (int j = 0; j < mshg.Length; j++)
+                {
+
+                    for (int k = 0; k < betuk.Length; k++)
+                    {
+                        if (mshg[j] == betuk[k])
+                        {
+                            mshgSzamlalo++;
+                        }
+                    }
+                }
+
+                if (mghSzamlalo > mshgSzamlalo)
+                {
+                    mshgSzavak.Add(mindenszo[i] + " ");
+                }
+                
+            }
+
+            double szazalek = (mshgSzavak.Count / mindenszo.Length) * 100;
+            mshgSzavak.ForEach(Console.Write);
+            Console.WriteLine("\n" + mshgSzavak.Count + "/" + mindenszo.Length + " : " + szazalek );
+            
 
 
-            //TEST
-            //Test
+            
 
 
 
