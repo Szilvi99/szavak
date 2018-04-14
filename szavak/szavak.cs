@@ -62,12 +62,10 @@ namespace szavak
             }
             Console.WriteLine(b);
             Console.WriteLine(szo);
-
             Console.WriteLine("3. feladat:");
             List<string> mghSzavak = new List<string>();
-            //Hibás a lista ;)
-            List<char> mshgLista = new List<char>{ 'a', 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
-            List<char> mghLista = new List<char> { 'a', 'e', 'i', 'o', 'u' };
+            List<char> mshgLista = new List<char>{ 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
+            List<char> mghLista = new List<char> { 'a', 'e', 'i', 'o', 'u'};
 
             for (int i = 0; i < mindenszo.Length; i++)
             {
@@ -75,20 +73,12 @@ namespace szavak
                 int mghSzamlalo = 0;
                 int mshgSzamlalo = 0;
 
-                for (int j = 0; j < osszesbetu.Length; j++)
+                for (int j = 0; j < betuk.Length; j++)
                 {
-
-                    for (int k = 0; k < betuk.Length; k++)
-                    {
-                        if (osszesbetu[j] == betuk[k])
-                        {
-                            if (mghLista.Contains(osszesbetu[j])){
-                                mghSzamlalo++;
-                            } else {
-                                mshgSzamlalo++;
-                            }
-                            
-                        }
+                    if (mghLista.Contains(betuk[j])){
+                        mghSzamlalo++;
+                    } else {
+                        mshgSzamlalo++;
                     }
                 }
 
@@ -99,15 +89,9 @@ namespace szavak
                 
             }
 
-            double szazalek = (mghSzavak.Count / mindenszo.Length) * 100;
+            double szazalek = ((double)mghSzavak.Count / (double)mindenszo.Length) * 100;
             mghSzavak.ForEach(Console.Write);
             Console.WriteLine("\n" + mghSzavak.Count + "/" + mindenszo.Length + " : " + szazalek );
-            
-
-
-            
-
-
 
 
             Console.ReadKey();
